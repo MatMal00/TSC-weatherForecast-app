@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { WeatherContext } from '@store/WeatherForecast.context';
 import WeatherItem from './subcomponents/WeatherItem';
-import img from '../../img/clear.png';
 import './WeatherList.scss';
 
 const WeatherList: React.FC = () => {
