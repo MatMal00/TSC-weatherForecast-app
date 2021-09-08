@@ -1,15 +1,14 @@
 import WeatchercastProvider from '@store/Weathercast.context';
-import Form from '@components/form/Form';
 
-import styles from './Weatchercast.module.css';
+import './App.scss';
 
 const Weathercast = () => {
     return (
-        <div className={styles.container}>
+        <div className="container">
             <h1>Weathercast</h1>
-            <div className={styles.center}>
+            <div className="center">
                 <WeatchercastProvider>
-                    <Form />
+                    
                 </WeatchercastProvider>
             </div>
         </div>
