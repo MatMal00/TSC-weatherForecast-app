@@ -1,0 +1,60 @@
+@import '@styles/variables';
+@import '@styles/responsive';
+
+.weatherList {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: start;
+    width: 100vw;
+    background-color: $gray-color;
+    box-shadow: 2px 3px 20px #8f8f8f;
+    overflow-x: scroll;
+
+    &__item {
+        padding: 1.8rem;
+        display: flex;
+        align-items: center;
+        min-width: max-content;
+
+        img {
+            height: 10rem;
+        }
+
+        h2 {
+            font-size: $sizeExtraSmall;
+            font-weight: normal;
+        }
+
+        &-img-box {
+            text-align: center;
+        }
+
+        &-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+    }
+
+    &__temp {
+        h3 {
+            font-size: $sizeXXS;
+        }
+        p {
+            font-size: $sizeExtraSmall;
+            font-weight: bold;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &__inline-data {
+        h5 {
+            font-size: $sizeExtraSmall;
+            font-weight: normal;
+        }
+    }
+}
