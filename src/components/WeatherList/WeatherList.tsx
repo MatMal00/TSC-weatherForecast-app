@@ -1,15 +1,13 @@
-import { useContext } from 'react';
-import { WeatherContext } from '@store/WeatherForecast.context';
+import { WeatherData } from '@store/WeatherForecast.types';
 import WeatherItem from './subcomponents/WeatherItem';
 import './WeatherList.scss';
 
-const WeatherList: React.FC = () => {
-    const { weatherState } = useContext(WeatherContext);
-    const { weatherForecastList } = weatherState;
+interface WeatherListProps {
+    weatherForecast: WeatherData[];
+}
 
-    const items = weatherForecastList.map(item => (
-        <WeatherItem weatherForecast={item} key={item.dt} />
-    ));
+const WeatherList: React.FC<WeatherListProps> = ({ weatherForecast }) => {
+    const items = weatherForecast.map(item => <WeatherItem weatherForecast={item} key={item.dt} />);
 
     return <div className="weatherList">{items}</div>;
 };

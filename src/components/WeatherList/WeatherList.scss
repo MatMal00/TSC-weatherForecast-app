@@ -5,9 +5,10 @@
     margin: 1rem 0;
     display: flex;
     justify-content: start;
-    width: 100vw;
+    width: 100%;
     background-color: $gray-color;
     box-shadow: 2px 3px 20px #8f8f8f;
+    border-radius: 10px;
     overflow-x: scroll;
 
     &__item {
@@ -15,6 +16,7 @@
         display: flex;
         align-items: center;
         min-width: max-content;
+        color: $black-color;
 
         img {
             height: 10rem;

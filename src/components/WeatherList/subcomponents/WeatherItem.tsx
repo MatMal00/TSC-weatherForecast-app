@@ -16,6 +16,7 @@ const WeatherItem: React.FC<WeatherItemProps> = ({ weatherForecast }) => {
     const hour = weatherForecast.dt_txt.slice(11, 16);
     const { temp, feels_like, pressure } = weatherForecast.main;
     const { description, id } = weatherForecast.weather[0];
+    
     let image: string = imgClear;
 
     const chooseImg = () => {
