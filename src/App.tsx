@@ -1,4 +1,5 @@
 import WeatchercastProvider from '@store/Weathercast.context';
+import Searcher from '@components/Searcher/Searcher';
 
 import './App.scss';
 
@@ -8,7 +9,7 @@ const Weathercast = () => {
             <h1>Weathercast</h1>
             <div className="center">
                 <WeatchercastProvider>
-                    
+                    <Searcher />
                 </WeatchercastProvider>
             </div>
         </div>
