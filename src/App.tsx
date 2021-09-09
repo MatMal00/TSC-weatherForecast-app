@@ -4,16 +4,20 @@ import Title from '@components/Title/Title';
 import Searcher from '@components/Searcher/Searcher';
 import WeatherForecast from '@components/WeatherForecast/WeatherForecast';
 import './App.scss';
+import Loader from '@components/Loader/Loader';
 
 const Weathercast = () => {
     const { weatherState } = useContext(WeatherContext);
+    const { weatherForecastList, loading, error, errorMessage } = weatherState;
 
     return (
         <div className="container">
             <Title />
             <div className="center">
-                <Searcher />
-                {weatherState.weatherForecastList.length > 0 ? <WeatherForecast /> : null}
+                {!loading && <Searcher />}
+                {weatherForecastList.length > 0 && !loading && !error ? <WeatherForecast /> : null}
+                {error && <p className="error">{errorMessage}</p>}
+                {loading && <Loader />}
             </div>
         </div>
     );

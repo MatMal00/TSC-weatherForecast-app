@@ -2,6 +2,7 @@ export interface WeatherForecastState {
     weatherForecastList: [] | WeatherData[];
     city: undefined | CityData;
     error: boolean;
+    errorMessage: string;
     loading: boolean;
 }
 
@@ -24,7 +25,10 @@ export type Loading = {
 };
 export type Error = {
     type: WeatherForecastActionType.ERROR;
-    payload: boolean;
+    payload: {
+        isError: boolean;
+        errorMessage: string;
+    };
 };
 
 export type WeatherForecastActions = FetchWeatherForecast | Error | Loading;
