@@ -13,6 +13,7 @@ const initialState: WeatherForecastState = {
     weatherForecastList: [],
     city: undefined,
     error: false,
+    errorMessage: '',
     loading: false,
 };
 
@@ -27,6 +28,20 @@ const reducer = (
                 weatherForecastList: action.payload.weatherForecast,
                 city: action.payload.city,
                 loading: false,
+                error: false,
+                errorMessage: '',
+            };
+        case WeatherForecastActionType.LOADING:
+            return {
+                ...state,
+                loading: true,
+            };
+        case WeatherForecastActionType.ERROR:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.isError,
+                errorMessage: action.payload.errorMessage,
             };
         default:
             return state;

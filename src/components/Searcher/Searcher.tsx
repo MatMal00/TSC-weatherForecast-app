@@ -15,24 +15,27 @@ const Searcher: React.FC = () => {
         event.preventDefault();
 
         if (inputValue.trim().length === 0) {
-            console.log(`ERROR`);
-            // THROW ERROR
+            weatherDispatch({
+                type: WeatherForecastActionType.ERROR,
+                payload: { isError: true, errorMessage: 'Wrong city name' },
+            });
             return;
         }
 
         try {
-            // LOADING
+            weatherDispatch({ type: WeatherForecastActionType.LOADING, payload: true });
             const data = await fetchWeather(inputValue);
-            
+
             weatherDispatch({
                 type: WeatherForecastActionType.GET_WEATHER_FORECAST,
                 payload: { weatherForecast: data.list, city: data.city },
             });
             //STOP LOADING
         } catch (err) {
-            //STOP LOADING
-            //HANDLE ERRORS
-            console.log(err);
+            weatherDispatch({
+                type: WeatherForecastActionType.ERROR,
+                payload: { isError: true, errorMessage: 'City Not Found' },
+            });
         }
     };
 

@@ -2,11 +2,13 @@
 @import 'styles/responsive';
 
 .title {
+    margin-top: 2rem;
     position: relative;
     overflow-x: hidden;
     height: 9rem;
 
     @include media-mobile {
+        margin-top: 4rem 0;
         height: 15rem;
     }
 
