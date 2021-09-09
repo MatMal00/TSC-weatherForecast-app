@@ -1,0 +1,46 @@
+@import 'styles/variables';
+@import 'styles/responsive';
+
+.title {
+    position: relative;
+    overflow-x: hidden;
+    height: 9rem;
+
+    @include media-mobile {
+        height: 15rem;
+    }
+
+    h1,
+    p {
+        text-transform: uppercase;
+        font-family: $special-font;
+    }
+    h1 {
+        margin: 1rem;
+        text-align: center;
+        letter-spacing: 0.5rem;
+        font-size: $sizeL;
+
+        &::first-letter {
+            letter-spacing: 1.4rem;
+        }
+
+        @include media-mobile {
+            font-size: $sizeXXL;
+        }
+    }
+
+    p {
+        width: 100%;
+        position: absolute;
+        top: 78%;
+        left: 50%;
+        font-size: $sizeMini;
+        letter-spacing: 0.3rem;
+
+        @include media-mobile {
+            top: 62%;
+            font-size: $sizeExtraSmall;
+        }
+    }
+}

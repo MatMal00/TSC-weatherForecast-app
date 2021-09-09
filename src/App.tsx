@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { WeatherContext } from '@store/WeatherForecast.context';
+import Title from '@components/Title/Title';
 import Searcher from '@components/Searcher/Searcher';
 import WeatherForecast from '@components/WeatherForecast/WeatherForecast';
 import './App.scss';
@@ -9,7 +10,7 @@ const Weathercast = () => {
 
     return (
         <div className="container">
-            <h1>Weather Forecast</h1>
+            <Title />
             <div className="center">
                 <Searcher />
                 {weatherState.weatherForecastList.length > 0 ? <WeatherForecast /> : null}

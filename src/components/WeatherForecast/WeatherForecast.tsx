@@ -8,19 +8,20 @@ const WeatherForecast: React.FC = () => {
     const { weatherState } = useContext(WeatherContext);
     const { weatherForecastList } = weatherState;
 
-    let weatherCopy: WeatherData[] = [];
     let listsToRender: ReactNode[] = [];
 
     const createLists = () => {
+        let weatherCopy: WeatherData[] = [];
         let prevDate = weatherForecastList[0].dt_txt.slice(0, 10);
         let lastestIndex = 0;
 
         for (let i = 0; i < weatherForecastList.length; i++) {
-            const date = weatherForecastList[i].dt_txt.slice(0, 10);            
+            const date = weatherForecastList[i].dt_txt.slice(0, 10);
 
             if (date !== prevDate) {
+                const day = new Date(prevDate).getDay();
                 weatherCopy = [...weatherForecastList.slice(lastestIndex, i)];
-                listsToRender.push(<WeatherList key={i} weatherForecast={weatherCopy} />);
+                listsToRender.push(<WeatherList key={i} day={day} weatherForecast={weatherCopy} />);
                 lastestIndex = i;
                 prevDate = date;
             }
