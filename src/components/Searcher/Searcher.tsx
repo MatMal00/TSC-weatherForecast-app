@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { fetchWeather } from '@store/WeatherForecast.services';
 import { WeatherContext } from '@store/WeatherForecast.context';
-import './Searcher.scss';
 import { WeatherForecastActionType } from '@store/WeatherForecast.types';
+import './Searcher.scss';
 
 const Searcher: React.FC = () => {
     const [inputValue, setInputValue] = useState('');

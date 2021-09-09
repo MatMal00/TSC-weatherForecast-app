@@ -14,7 +14,16 @@ html {
 }
 
 body {
-    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background: rgb(54, 56, 56);
+    background: linear-gradient(
+        90deg,
+        rgba(54, 56, 56, 1) 10%,
+        rgba(0, 0, 0, 1) 20%,
+        rgba(26, 27, 27, 1) 50%,
+        rgba(0, 0, 0, 1) 80%,
+        rgba(54, 56, 56, 1) 90%
+    );
     -moz-osx-font-smoothing: grayscale;
 }
 

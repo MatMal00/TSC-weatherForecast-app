@@ -2,6 +2,8 @@
 @import '@styles/responsive';
 
 .searcher {
+    margin-bottom: 3rem;
+
     form {
         margin-top: 2rem;
         display: flex;
@@ -30,16 +32,19 @@
     }
 
     button {
-        padding: 0 0.2rem;
+        padding: 0 0.6rem;
         font-size: $sizeXS;
-        border-width: 1px 1px 1px 0px;
+        font-family: $special-font;
+        color: $font-color;
+        text-transform: uppercase;
+        border-width: 1px 1px 1px 1px;
         border-radius: 0px 5px 5px 0px;
-        background-color: #b8b8b8;
-        transition: background-color .3s, color .3s;
+        background-color: $gray-color;
+        transition: background-color 0.3s, color 0.3s;
 
         &:hover {
-            background-color: #000000b9;
-            color: white;
+            background-color: $font-color;
+            color: $black-color;
         }
     }
 }

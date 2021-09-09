@@ -1,26 +1,14 @@
-@import 'styles/variables';
-@import 'styles/responsive';
-
 .container {
     padding: 0 5px;
+    margin: 0 auto 10rem auto;
     position: relative;
-    margin: 0 auto;
     width: 100%;
-    max-width: 1355px;
+    max-width: 1350px;
 }
 
 .center {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container h1 {
-    margin: 1rem;
-    text-align: center;
-    font-family: $special-header;
-    font-size: $sizeXM;
-
-    @include media-mobile {
-        font-size: $sizeL;
-    }
-}

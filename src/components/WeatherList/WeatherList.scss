@@ -1,0 +1,91 @@
+@import '@styles/variables';
+@import '@styles/responsive';
+
+.weatherList {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    background-color: $gray-color;
+    box-shadow: 2px 3px 8px $black-color;
+    overflow-x: scroll;
+
+    @include media-mobile {
+        border-radius: 10px;
+    }
+
+    &__day {
+        margin: 2.4rem 0 0 0;
+        font-size: $sizeXM;
+        font-family: $special-font;
+        letter-spacing: .2rem;
+        text-transform: uppercase;
+
+        &:nth-child(1) {
+            margin: unset;
+        }
+    }
+
+    &__item {
+        padding: 1.8rem;
+        display: flex;
+        align-items: center;
+        min-width: max-content;
+        box-shadow: 3px 1px 5px $black-color;
+
+        &:nth-last-child(1) {
+            box-shadow: unset;
+        }
+
+        img {
+            height: 10rem;
+        }
+
+        h2 {
+            font-size: $sizeExtraSmall;
+            font-weight: normal;
+        }
+
+        &-img-box {
+            text-align: center;
+        }
+
+        &-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+    }
+
+    &__temp {
+        h3 {
+            font-size: $sizeXXS;
+        }
+        p {
+            font-size: $sizeExtraSmall;
+            font-weight: bold;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &__inline-data {
+        h5 {
+            font-size: $sizeExtraSmall;
+            font-weight: normal;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        height: 8px;
+        background-color: #474747;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $font-color;
+        border-radius: 10px;
+    }
+}
