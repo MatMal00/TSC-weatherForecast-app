@@ -5,7 +5,7 @@
     margin-top: 2rem;
     position: relative;
     overflow-x: hidden;
-    height: 9rem;
+    height: 10rem;
 
     @include media-mobile {
         margin-top: 4rem 0;
@@ -21,28 +21,28 @@
         margin: 1rem;
         text-align: center;
         letter-spacing: 0.5rem;
-        font-size: $sizeL;
+        font-size: $sizeXL;
 
         &::first-letter {
             letter-spacing: 1.4rem;
         }
 
         @include media-mobile {
-            font-size: $sizeXXL;
+            font-size: $sizeExtraLarge;
         }
     }
 
     p {
         width: 100%;
         position: absolute;
-        top: 78%;
+        top: 86%;
         left: 50%;
         font-size: $sizeMini;
         letter-spacing: 0.3rem;
 
         @include media-mobile {
-            top: 62%;
-            font-size: $sizeExtraSmall;
+            top: 66%;
+            font-size: $sizeXXS;
         }
     }
 }
