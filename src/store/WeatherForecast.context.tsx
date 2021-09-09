@@ -35,6 +35,7 @@ const reducer = (
             return {
                 ...state,
                 loading: true,
+                error: false,
             };
         case WeatherForecastActionType.ERROR:
             return {
