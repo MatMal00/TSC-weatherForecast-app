@@ -41,27 +41,27 @@ const WeatherItem: React.FC<WeatherItemProps> = ({ weatherForecast }) => {
             <div className="weatherList__item-img-box">
                 <img src={image} alt="clear" />
                 <article>
-                    <h3>{date}</h3>
+                    <h5>{date}</h5>
                 </article>
             </div>
             <div className="weatherList__item-box">
-                <h2>{hour}</h2>
+                <h4>{hour}</h4>
 
                 <article className="weatherList__temp">
-                    <h3>{Math.floor(temp)}°C</h3>
+                    <h5>{Math.floor(temp)}°C</h5>
                     <p>{description}</p>
                 </article>
 
                 <article className="weatherList__inline-data">
-                    <h5>
+                    <h6>
                         Feels like: <span>{Math.floor(feels_like)}°C</span>
-                    </h5>
+                    </h6>
                 </article>
 
                 <article className="weatherList__inline-data">
-                    <h5>
+                    <h6>
                         Pressure: <span>{pressure} hPa</span>
-                    </h5>
+                    </h6>
                 </article>
             </div>
         </div>

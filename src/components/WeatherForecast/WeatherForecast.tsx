@@ -6,7 +6,7 @@ import './WeatherForecast.scss';
 
 const WeatherForecast: React.FC = () => {
     const { weatherState } = useContext(WeatherContext);
-    const { weatherForecastList } = weatherState;
+    const { weatherForecastList, city } = weatherState;
 
     let listsToRender: ReactNode[] = [];
 
@@ -29,7 +29,12 @@ const WeatherForecast: React.FC = () => {
     };
     createLists();
 
-    return <div className="weatherForecast">{listsToRender}</div>;
+    return (
+        <>
+            <h2 className="weatherForecast__city-name">{city?.name}</h2>
+            <div className="weatherForecast">{listsToRender}</div>
+        </>
+    );
 };
 
 export default WeatherForecast;
