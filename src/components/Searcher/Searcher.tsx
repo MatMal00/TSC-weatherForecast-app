@@ -30,11 +30,15 @@ const Searcher: React.FC = () => {
                 type: WeatherForecastActionType.GET_WEATHER_FORECAST,
                 payload: { weatherForecast: data.list, city: data.city },
             });
-            //STOP LOADING
-        } catch (err) {
+        } catch (err: any) {
+            const errCode = err.response?.status;
+
             weatherDispatch({
                 type: WeatherForecastActionType.ERROR,
-                payload: { isError: true, errorMessage: 'City Not Found' },
+                payload: {
+                    isError: true,
+                    errorMessage: errCode === 404 ? 'City Not Found' : err.message,
+                },
             });
         }
     };
