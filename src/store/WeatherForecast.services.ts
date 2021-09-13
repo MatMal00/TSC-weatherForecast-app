@@ -10,7 +10,7 @@ export const fetchWeather = async (city: string) => {
 
 export const fetchWeatherByUserLocation = async (lat: number, lon: number) => {
     const { data }: ApiResponse = await api().get(
-        `/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
+        `/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
     );
     return data ?? [];
 };
