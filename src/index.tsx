@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Weatchercast from './App';
 import WeatcherForecastProvider from '@store/WeatherForecast.context';
-import './index.modules.scss';
+import './index.scss';
 
 ReactDOM.render(
     <React.StrictMode>

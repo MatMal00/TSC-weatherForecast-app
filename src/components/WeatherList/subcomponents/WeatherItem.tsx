@@ -5,7 +5,7 @@ import imgMist from '@img/mist.png';
 import imgRain from '@img/rain.png';
 import imgSnow from '@img/snow.png';
 import imgThunderstorm from '@img/thunderstorm.png';
-import '../WeatherList.modules.scss';
+import styles from './WeatherItem.module.scss';
 
 interface WeatherItemProps {
     weatherForecast: WeatherData;
@@ -16,7 +16,7 @@ const WeatherItem: React.FC<WeatherItemProps> = ({ weatherForecast }) => {
     const hour = weatherForecast.dt_txt.slice(11, 16);
     const { temp, feels_like, pressure } = weatherForecast.main;
     const { description, id } = weatherForecast.weather[0];
-    
+
     let image: string = imgClear;
 
     const chooseImg = () => {
@@ -35,30 +35,30 @@ const WeatherItem: React.FC<WeatherItemProps> = ({ weatherForecast }) => {
         }
     };
     chooseImg();
-    
+
     return (
-        <div className="weatherList__item">
-            <div className="weatherList__item-img-box">
-                <img src={image} alt="clear" />
+        <div className={styles.item}>
+            <div className={styles.imgBox}>
+                <img src={image} alt={description} />
                 <article>
                     <h5>{date}</h5>
                 </article>
             </div>
-            <div className="weatherList__item-box">
+            <div className={styles.box}>
                 <h4>{hour}</h4>
 
-                <article className="weatherList__temp">
+                <article className={styles.temp}>
                     <h5>{Math.floor(temp)}°C</h5>
                     <p>{description}</p>
                 </article>
 
-                <article className="weatherList__inline-data">
+                <article className={styles.inlineData}>
                     <h6>
                         Feels like: <span>{Math.floor(feels_like)}°C</span>
                     </h6>
                 </article>
 
-                <article className="weatherList__inline-data">
+                <article className={styles.inlineData}>
                     <h6>
                         Pressure: <span>{pressure} hPa</span>
                     </h6>

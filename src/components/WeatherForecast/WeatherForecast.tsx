@@ -2,7 +2,7 @@ import { ReactNode, useContext } from 'react';
 import { WeatherData } from '@store/WeatherForecast.types';
 import { WeatherContext } from '@store/WeatherForecast.context';
 import WeatherList from '@components/WeatherList/WeatherList';
-import './WeatherForecast.modules.scss';
+import styles from './WeatherForecast.module.scss';
 
 const WeatherForecast: React.FC = () => {
     const { weatherState } = useContext(WeatherContext);
@@ -31,8 +31,8 @@ const WeatherForecast: React.FC = () => {
 
     return (
         <>
-            <h2 className="weatherForecast__city-name">{city?.name}</h2>
-            <div className="weatherForecast">{listsToRender}</div>
+            <h2 className={styles.cityName}>{city?.name}</h2>
+            <div className={styles.weatherForecast}>{listsToRender}</div>
         </>
     );
 };

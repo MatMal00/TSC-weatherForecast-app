@@ -7,7 +7,7 @@ import Searcher from '@components/Searcher/Searcher';
 import WeatherForecast from '@components/WeatherForecast/WeatherForecast';
 import Loader from '@components/Loader/Loader';
 import Map from '@components/Map/Map';
-import './App.modules.scss';
+import styles from './App.module.scss';
 
 const getPosition = (options?: PositionOptions): Promise<GeolocationPosition> =>
     new Promise((resolve, reject) =>
@@ -46,14 +46,14 @@ const Weathercast = () => {
     }, [weatherDispatch]);
 
     return (
-        <div className="container">
+        <div className={styles.container}>
             <Title />
-            <div className="center">
+            <div className={styles.center}>
                 {!loading && <Searcher />}
                 {weatherForecastList.length > 0 && !loading && !error ? <WeatherForecast /> : null}
                 {!loading && !error && isWeatherAvaiable && <Map />}
                 {loading && <Loader />}
-                {error && <p className="error">{errorMessage}</p>}
+                {error && <p className={styles.error}>{errorMessage}</p>}
             </div>
         </div>
     );

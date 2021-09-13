@@ -1,6 +1,6 @@
 import { WeatherData } from '@store/WeatherForecast.types';
 import WeatherItem from './subcomponents/WeatherItem';
-import './WeatherList.modules.scss';
+import styles from './WeatherList.module.scss';
 
 interface WeatherListProps {
     weatherForecast: WeatherData[];
@@ -13,8 +13,8 @@ const WeatherList: React.FC<WeatherListProps> = ({ day, weatherForecast }) => {
 
     return (
         <>
-            <h2 className="weatherList__day">{days[day]}</h2>
-            <div className="weatherList">{items}</div>
+            <h2 className={styles.day}>{days[day]}</h2>
+            <div className={styles.weatherList}>{items}</div>
         </>
     );
 };
