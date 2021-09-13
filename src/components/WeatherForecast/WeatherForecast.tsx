@@ -2,7 +2,7 @@ import { ReactNode, useContext } from 'react';
 import { WeatherData } from '@store/WeatherForecast.types';
 import { WeatherContext } from '@store/WeatherForecast.context';
 import WeatherList from '@components/WeatherList/WeatherList';
-import './WeatherForecast.scss';
+import './WeatherForecast.modules.scss';
 
 const WeatherForecast: React.FC = () => {
     const { weatherState } = useContext(WeatherContext);

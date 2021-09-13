@@ -1,4 +1,4 @@
-import './Title.scss';
+import './Title.modules.scss';
 
 const Title: React.FC = () => {
     return (

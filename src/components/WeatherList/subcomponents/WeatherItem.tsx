@@ -5,7 +5,7 @@ import imgMist from '@img/mist.png';
 import imgRain from '@img/rain.png';
 import imgSnow from '@img/snow.png';
 import imgThunderstorm from '@img/thunderstorm.png';
-import '../WeatherList.scss';
+import '../WeatherList.modules.scss';
 
 interface WeatherItemProps {
     weatherForecast: WeatherData;

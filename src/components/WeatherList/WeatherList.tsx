@@ -1,6 +1,6 @@
 import { WeatherData } from '@store/WeatherForecast.types';
 import WeatherItem from './subcomponents/WeatherItem';
-import './WeatherList.scss';
+import './WeatherList.modules.scss';
 
 interface WeatherListProps {
     weatherForecast: WeatherData[];
