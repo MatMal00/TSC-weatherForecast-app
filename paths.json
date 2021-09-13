@@ -6,7 +6,8 @@
             "@api": ["api"],
             "@img/*": ["img/*"],
             "@components/*": ["components/*"],
-            "@store/*": ["store/*"]
+            "@store/*": ["store/*"],
+            "@utils/*": ["utils/*"]
         }
     }
 }

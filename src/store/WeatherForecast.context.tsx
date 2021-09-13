@@ -1,5 +1,7 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { createContext } from 'react';
+import { getPosition } from '@utils/location';
+import { fetchWeatherByUserLocation } from './WeatherForecast.services';
 import {
     ProviderValue,
     WeatherForecastActions,
@@ -49,6 +51,32 @@ const reducer = (
 
 const WeatcherForecastProvider: React.FC = ({ children }) => {
     const [weatherState, weatherDispatch] = useReducer(reducer, initialState);
+
+    useEffect(() => {
+        const fetchUserLocation = async () => {
+            try {
+                weatherDispatch({ type: WeatherForecastActionType.LOADING, payload: true });
+
+                const { coords } = await getPosition({
+                    enableHighAccuracy: true,
+                    maximumAge: 1400,
+                    timeout: 1400,
+                });
+                const { latitude: lat, longitude: lon } = coords;
+
+                const data = await fetchWeatherByUserLocation(lat, lon);
+
+                weatherDispatch({
+                    type: WeatherForecastActionType.GET_WEATHER_FORECAST,
+                    payload: { weatherForecast: data.list, city: data.city },
+                });
+            } catch (err: any) {
+                console.error(err.message);
+                weatherDispatch({ type: WeatherForecastActionType.LOADING, payload: false });
+            }
+        };
+        fetchUserLocation();
+    }, [weatherDispatch]);
 
     return (
         <WeatherContext.Provider value={{ weatherState, weatherDispatch }}>
