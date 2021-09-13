@@ -3,8 +3,8 @@ import { WeatherContext } from '@store/WeatherForecast.context';
 import Title from '@components/Title/Title';
 import Searcher from '@components/Searcher/Searcher';
 import WeatherForecast from '@components/WeatherForecast/WeatherForecast';
-import './App.scss';
 import Loader from '@components/Loader/Loader';
+import './App.scss';
 
 const Weathercast = () => {
     const { weatherState } = useContext(WeatherContext);

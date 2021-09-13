@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Weatchercast from './App';
-import WeatchercastProvider from '@store/WeatherForecast.context';
+import WeatcherForecastProvider from '@store/WeatherForecast.context';
 import './index.scss';
 
 ReactDOM.render(
     <React.StrictMode>
-        <WeatchercastProvider>
+        <WeatcherForecastProvider>
             <Weatchercast />
-        </WeatchercastProvider>
+        </WeatcherForecastProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );

@@ -28,8 +28,6 @@ const reducer = (
                 weatherForecastList: action.payload.weatherForecast,
                 city: action.payload.city,
                 loading: false,
-                error: false,
-                errorMessage: '',
             };
         case WeatherForecastActionType.LOADING:
             return {
@@ -49,7 +47,7 @@ const reducer = (
     }
 };
 
-const WeatchercastProvider: React.FC = ({ children }) => {
+const WeatcherForecastProvider: React.FC = ({ children }) => {
     const [weatherState, weatherDispatch] = useReducer(reducer, initialState);
 
     return (
@@ -59,4 +57,4 @@ const WeatchercastProvider: React.FC = ({ children }) => {
     );
 };
 
-export default WeatchercastProvider;
+export default WeatcherForecastProvider;
