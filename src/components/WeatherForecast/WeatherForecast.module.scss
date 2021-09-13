@@ -1,0 +1,25 @@
+@import '@styles/variables';
+@import '@styles/responsive';
+
+.weatherForecast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(1rem + 100%);
+
+    @include media-mobile {
+        width: 100%;
+    }
+}
+
+.cityName {
+    margin-bottom: 4rem;
+    text-align: center;
+    font-size: 3.5rem;
+    font-family: $special-font;
+    letter-spacing: .7rem;
+
+    @include media-mobile {
+        font-size: $sizeM;
+    }
+}
