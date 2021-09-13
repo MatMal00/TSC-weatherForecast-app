@@ -6,6 +6,7 @@ import Title from '@components/Title/Title';
 import Searcher from '@components/Searcher/Searcher';
 import WeatherForecast from '@components/WeatherForecast/WeatherForecast';
 import Loader from '@components/Loader/Loader';
+import Map from '@components/Map/Map';
 import './App.scss';
 
 const getPosition = (options?: PositionOptions): Promise<GeolocationPosition> =>
@@ -16,6 +17,7 @@ const getPosition = (options?: PositionOptions): Promise<GeolocationPosition> =>
 const Weathercast = () => {
     const { weatherState, weatherDispatch } = useContext(WeatherContext);
     const { weatherForecastList, loading, error, errorMessage } = weatherState;
+    const currentLocation = Boolean(weatherState.city?.name);
 
     useEffect(() => {
         const fetchUserLocation = async () => {
@@ -49,8 +51,9 @@ const Weathercast = () => {
             <div className="center">
                 {!loading && <Searcher />}
                 {weatherForecastList.length > 0 && !loading && !error ? <WeatherForecast /> : null}
-                {error && <p className="error">{errorMessage}</p>}
+                {!loading && !error && currentLocation && <Map />}
                 {loading && <Loader />}
+                {error && <p className="error">{errorMessage}</p>}
             </div>
         </div>
     );
