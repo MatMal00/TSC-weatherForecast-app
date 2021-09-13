@@ -17,13 +17,16 @@ const Weathercast = () => {
     const { weatherState, weatherDispatch } = useContext(WeatherContext);
     const { weatherForecastList, loading, error, errorMessage } = weatherState;
 
-
     useEffect(() => {
         const fetchUserLocation = async () => {
             try {
                 weatherDispatch({ type: WeatherForecastActionType.LOADING, payload: true });
 
-                const { coords } = await getPosition();
+                const { coords } = await getPosition({
+                    enableHighAccuracy: true,
+                    maximumAge: 1400,
+                    timeout: 1400,
+                });
                 const { latitude: lat, longitude: lon } = coords;
 
                 const data = await fetchWeatherByUserLocation(lat, lon);
