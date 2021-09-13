@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/TSC-weatherForecast-app/static/css/main.02322891.chunk.css",
-    "main.js": "/TSC-weatherForecast-app/static/js/main.68571199.chunk.js",
-    "main.js.map": "/TSC-weatherForecast-app/static/js/main.68571199.chunk.js.map",
+    "main.css": "/TSC-weatherForecast-app/static/css/main.78bb3351.chunk.css",
+    "main.js": "/TSC-weatherForecast-app/static/js/main.c297b377.chunk.js",
+    "main.js.map": "/TSC-weatherForecast-app/static/js/main.c297b377.chunk.js.map",
     "runtime-main.js": "/TSC-weatherForecast-app/static/js/runtime-main.c8e2827e.js",
     "runtime-main.js.map": "/TSC-weatherForecast-app/static/js/runtime-main.c8e2827e.js.map",
     "static/js/2.c78aeef6.chunk.js": "/TSC-weatherForecast-app/static/js/2.c78aeef6.chunk.js",
     "static/js/2.c78aeef6.chunk.js.map": "/TSC-weatherForecast-app/static/js/2.c78aeef6.chunk.js.map",
     "index.html": "/TSC-weatherForecast-app/index.html",
-    "static/css/main.02322891.chunk.css.map": "/TSC-weatherForecast-app/static/css/main.02322891.chunk.css.map",
+    "static/css/main.78bb3351.chunk.css.map": "/TSC-weatherForecast-app/static/css/main.78bb3351.chunk.css.map",
     "static/js/2.c78aeef6.chunk.js.LICENSE.txt": "/TSC-weatherForecast-app/static/js/2.c78aeef6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c8e2827e.js",
     "static/js/2.c78aeef6.chunk.js",
-    "static/css/main.02322891.chunk.css",
-    "static/js/main.68571199.chunk.js"
+    "static/css/main.78bb3351.chunk.css",
+    "static/js/main.c297b377.chunk.js"
   ]
 }
