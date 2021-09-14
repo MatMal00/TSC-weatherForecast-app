@@ -1,4 +1,6 @@
+import { useCallback, useEffect, useState } from 'react';
 import { WeatherData } from '@store/WeatherForecast.types';
+import { getDate, getHour } from '@utils/helpers';
 import imgClear from '@img/clear.png';
 import imgClouds from '@img/clouds.png';
 import imgMist from '@img/mist.png';
@@ -12,29 +14,39 @@ interface WeatherItemProps {
 }
 
 const WeatherItem: React.FC<WeatherItemProps> = ({ weatherForecast }) => {
-    const date = weatherForecast.dt_txt.slice(0, 10);
-    const hour = weatherForecast.dt_txt.slice(11, 16);
+    const [image, setImage] = useState(imgClear);
+    const date = getDate(weatherForecast);
+    const hour = getHour(weatherForecast);
     const { temp, feels_like, pressure } = weatherForecast.main;
     const { description, id } = weatherForecast.weather[0];
 
-    let image: string = imgClear;
+    const chooseImg = useCallback(() => {
+        switch (true) {
+            case id >= 200 && id <= 232:
+                setImage(imgThunderstorm);
+                break;
+            case (id >= 300 && id <= 321) || (id >= 500 && id <= 531):
+                setImage(imgRain);
+                break;
+            case id >= 600 && id <= 622:
+                setImage(imgSnow);
+                break;
+            case id >= 701 && id <= 781:
+                setImage(imgMist);
+                break;
+            case id === 800:
+                setImage(imgClear);
+                break;
+            case id >= 801 && id <= 804:
+                setImage(imgClouds);
+                break;
 
-    const chooseImg = () => {
-        if (id >= 200 && id <= 232) {
-            image = imgThunderstorm;
-        } else if ((id >= 300 && id <= 321) || (id >= 500 && id <= 531)) {
-            image = imgRain;
-        } else if (id >= 600 && id <= 622) {
-            image = imgSnow;
-        } else if (id >= 701 && id <= 781) {
-            image = imgMist;
-        } else if (id === 800) {
-            image = imgClear;
-        } else if (id >= 801 && id <= 804) {
-            image = imgClouds;
+            default:
+                break;
         }
-    };
-    chooseImg();
+    }, [id]);
+
+    useEffect(() => chooseImg(), [chooseImg]);
 
     return (
         <div className={styles.item}>
