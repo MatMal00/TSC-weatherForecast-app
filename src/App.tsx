@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { WeatherContext } from '@store/WeatherForecast.context';
 import Title from '@components/Title/Title';
-import Searcher from '@components/Searcher/Searcher';
+import Search from '@components/Search/Search';
 import WeatherForecast from '@components/WeatherForecast/WeatherForecast';
 import Loader from '@components/Loader/Loader';
 import Map from '@components/Map/Map';
@@ -16,7 +16,7 @@ const Weathercast = () => {
         <div className={styles.container}>
             <Title />
             <div className={styles.center}>
-                {!loading && <Searcher />}
+                {!loading && <Search />}
                 {weatherForecastList.length > 0 && !loading && !error && <WeatherForecast />}
                 {!loading && !error && isWeatherAvaiable && <Map />}
                 {loading && <Loader />}
