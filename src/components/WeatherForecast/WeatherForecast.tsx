@@ -1,33 +1,42 @@
-import { ReactNode, useContext } from 'react';
+import { ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import { WeatherData } from '@store/WeatherForecast.types';
 import { WeatherContext } from '@store/WeatherForecast.context';
+import { getDate } from '@utils/helpers';
 import WeatherList from '@components/WeatherList/WeatherList';
 import styles from './WeatherForecast.module.scss';
 
 const WeatherForecast: React.FC = () => {
+    const [listsToRender, setListsToRender] = useState<ReactNode[]>([]);
     const { weatherState } = useContext(WeatherContext);
     const { weatherForecastList, city } = weatherState;
 
-    let listsToRender: ReactNode[] = [];
+    const createLists = useCallback(() => {
+        let weatherForDay: WeatherData[] = [];
+        let prevDate = getDate(weatherForecastList[0]);
+        let latestIndex = 0;
 
-    const createLists = () => {
-        let weatherCopy: WeatherData[] = [];
-        let prevDate = weatherForecastList[0].dt_txt.slice(0, 10);
-        let lastestIndex = 0;
-
-        for (let i = 0; i < weatherForecastList.length; i++) {
-            const date = weatherForecastList[i].dt_txt.slice(0, 10);
+        weatherForecastList.forEach((_item, index) => {
+            const date = getDate(weatherForecastList[index]);
 
             if (date !== prevDate) {
                 const day = new Date(prevDate).getDay();
-                weatherCopy = [...weatherForecastList.slice(lastestIndex, i)];
-                listsToRender.push(<WeatherList key={i} day={day} weatherForecast={weatherCopy} />);
-                lastestIndex = i;
+                weatherForDay = [...weatherForecastList.slice(latestIndex, index)];
+                setListsToRender(prevState => {
+                    const element = (
+                        <WeatherList key={index} day={day} weatherForecast={weatherForDay} />
+                    );
+
+                    return [...prevState, element];
+                });
+                latestIndex = index;
                 prevDate = date;
             }
-        }
-    };
-    createLists();
+        });
+    }, [weatherForecastList]);
+
+    useEffect(() => {
+        createLists();
+    }, [createLists]);
 
     return (
         <>

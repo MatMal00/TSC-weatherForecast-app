@@ -5,9 +5,9 @@ import { WeatherForecastActionType } from '@store/WeatherForecast.types';
 import { fetchWeatherByUserLocation } from '@store/WeatherForecast.services';
 
 const containerStyle = {
+    marginTop: '50px',
     width: '100%',
     height: '300px',
-    marginTop: '50px',
 };
 
 const Map = () => {
