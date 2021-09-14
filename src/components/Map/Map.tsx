@@ -11,12 +11,16 @@ const containerStyle = {
 };
 
 const Map = () => {
+    const [isMarker, setIsMarker] = useState(false);
     const { weatherState, weatherDispatch } = useContext(WeatherContext);
     const { city } = weatherState;
 
+    if (Boolean(weatherState.city?.coord) && !isMarker) setIsMarker(true);
+    if (!Boolean(weatherState.city?.coord) && isMarker) setIsMarker(false);
+
     const [position, setPosition] = useState({
-        lat: city?.coord.lat ?? 0,
-        lng: city?.coord.lon ?? 0,
+        lat: city?.coord.lat ?? 52.237049,
+        lng: city?.coord.lon ?? 21.017532,
     });
 
     const { isLoaded } = useJsApiLoader({
@@ -38,6 +42,7 @@ const Map = () => {
                 lat: event.latLng.lat(),
                 lng: event.latLng.lng(),
             });
+            setIsMarker(true);
         } catch (err: any) {
             weatherDispatch({
                 type: WeatherForecastActionType.ERROR,
@@ -56,7 +61,7 @@ const Map = () => {
             center={position}
             zoom={10}
             options={{ streetViewControl: false }}>
-            <Marker position={position}></Marker>
+            {isMarker && <Marker position={position}></Marker>}
         </GoogleMap>
     ) : (
         <></>
