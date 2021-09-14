@@ -10,7 +10,6 @@ import styles from './App.module.scss';
 const Weathercast = () => {
     const { weatherState } = useContext(WeatherContext);
     const { weatherForecastList, loading, error, errorMessage } = weatherState;
-    
 
     return (
         <div className={styles.container}>
@@ -18,9 +17,9 @@ const Weathercast = () => {
             <div className={styles.center}>
                 {!loading && <Search />}
                 {weatherForecastList.length > 0 && !loading && !error && <WeatherForecast />}
-                {!loading && !error && <Map />}
                 {loading && <Loader />}
                 {error && <p className={styles.error}>{errorMessage}</p>}
+                {!loading && <Map />}
             </div>
         </div>
     );

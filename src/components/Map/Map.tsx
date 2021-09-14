@@ -14,7 +14,7 @@ const containerStyle = {
 const Map = () => {
     const [isMarker, setIsMarker] = useState(false);
     const { weatherState, weatherDispatch } = useContext(WeatherContext);
-    const { city } = weatherState;
+    const { city, error } = weatherState;
 
     if (Boolean(weatherState.city?.coord) && !isMarker) setIsMarker(true);
     if (!Boolean(weatherState.city?.coord) && isMarker) setIsMarker(false);
@@ -63,7 +63,7 @@ const Map = () => {
                 center={position}
                 zoom={10}
                 options={{ streetViewControl: false }}>
-                {isMarker && <Marker position={position}></Marker>}
+                {isMarker && !error && <Marker position={position}></Marker>}
             </GoogleMap>
         </div>
     ) : null;
