@@ -3,6 +3,7 @@ import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import { WeatherContext } from '@store/WeatherForecast.context';
 import { WeatherForecastActionType } from '@store/WeatherForecast.types';
 import { fetchWeatherByUserLocation } from '@store/WeatherForecast.services';
+import styles from './Map.module.scss';
 
 const containerStyle = {
     marginTop: '50px',
@@ -55,17 +56,17 @@ const Map = () => {
     };
 
     return isLoaded ? (
-        <GoogleMap
-            onClick={setMarker}
-            mapContainerStyle={containerStyle}
-            center={position}
-            zoom={10}
-            options={{ streetViewControl: false }}>
-            {isMarker && <Marker position={position}></Marker>}
-        </GoogleMap>
-    ) : (
-        <></>
-    );
+        <div id="map" className={styles.map}>
+            <GoogleMap
+                onClick={setMarker}
+                mapContainerStyle={containerStyle}
+                center={position}
+                zoom={10}
+                options={{ streetViewControl: false }}>
+                {isMarker && <Marker position={position}></Marker>}
+            </GoogleMap>
+        </div>
+    ) : null;
 };
 
 export default Map;
