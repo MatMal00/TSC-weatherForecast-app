@@ -1,12 +1,10 @@
-import './Title.modules.scss';
+import styles from './Title.module.scss';
 
-const Title: React.FC = () => {
-    return (
-        <div className="title">
-            <h1>5days </h1>
-            <p>weather forecast</p>
-        </div>
-    );
-};
+const Title: React.FC = () => (
+    <div className={styles.title}>
+        <h1>5days </h1>
+        <p>weather forecast</p>
+    </div>
+);
 
 export default Title;

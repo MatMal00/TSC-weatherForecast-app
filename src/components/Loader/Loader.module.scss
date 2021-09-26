@@ -1,4 +1,4 @@
-@import '@styles/responsive.modules';
+@import '@styles/responsive';
 
 .loader {
     margin: 5rem 0;
@@ -10,6 +10,7 @@
         width: 150px;
     }
 }
+
 .loader > div {
     height: inherit;
     width: inherit;
@@ -20,6 +21,7 @@
     animation-iteration-count: infinite;
     opacity: 0;
 }
+
 .loader > div > div {
     height: 15px;
     width: 15px;
@@ -35,6 +37,7 @@
         width: 25px;
     }
 }
+
 .loader > div:nth-child(2) {
     transform: rotate(30deg);
     animation-delay: 0.1s;
@@ -79,6 +82,7 @@
     transform: rotate(330deg);
     animation-delay: 1.1s;
 }
+
 @keyframes opacity {
     0% {
         opacity: 0.2;

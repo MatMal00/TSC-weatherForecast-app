@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react';
 import { fetchWeather } from '@store/WeatherForecast.services';
 import { WeatherContext } from '@store/WeatherForecast.context';
 import { WeatherForecastActionType } from '@store/WeatherForecast.types';
-import './Searcher.modules.scss';
+import styles from './Search.module.scss';
 
-const Searcher: React.FC = () => {
+const Search: React.FC = () => {
     const [inputValue, setInputValue] = useState('');
     const { weatherDispatch } = useContext(WeatherContext);
 
@@ -44,7 +44,7 @@ const Searcher: React.FC = () => {
     };
 
     return (
-        <div className="searcher">
+        <div className={styles.search}>
             <form onSubmit={searchHandler}>
                 <input
                     onChange={inputValueHandler}
@@ -58,4 +58,4 @@ const Searcher: React.FC = () => {
     );
 };
 
-export default Searcher;
+export default Search;

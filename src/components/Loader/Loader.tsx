@@ -1,8 +1,8 @@
-import './Loader.modules.scss';
+import styles from './Loader.module.scss';
 
 const Loader: React.FC = () => {
     return (
-        <div className="loader">
+        <div className={styles.loader}>
             <div>
                 <div></div>
             </div>
