@@ -1,3 +1,4 @@
+import React from 'react';
 import { ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import { WeatherData } from '@store/WeatherForecast.types';
 import { WeatherContext } from '@store/WeatherForecast.context';

@@ -3,6 +3,7 @@ import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import { WeatherContext } from '@store/WeatherForecast.context';
 import { WeatherForecastActionType } from '@store/WeatherForecast.types';
 import { fetchWeatherByUserLocation } from '@store/WeatherForecast.services';
+import styles from './Map.module.scss';
 
 const containerStyle = {
     marginTop: '50px',
@@ -11,12 +12,16 @@ const containerStyle = {
 };
 
 const Map = () => {
+    const [isMarker, setIsMarker] = useState(false);
     const { weatherState, weatherDispatch } = useContext(WeatherContext);
-    const { city } = weatherState;
+    const { city, error } = weatherState;
+
+    if (Boolean(weatherState.city?.coord) && !isMarker) setIsMarker(true);
+    if (!Boolean(weatherState.city?.coord) && isMarker) setIsMarker(false);
 
     const [position, setPosition] = useState({
-        lat: city?.coord.lat ?? 0,
-        lng: city?.coord.lon ?? 0,
+        lat: city?.coord.lat ?? 52.237049,
+        lng: city?.coord.lon ?? 21.017532,
     });
 
     const { isLoaded } = useJsApiLoader({
@@ -38,6 +43,7 @@ const Map = () => {
                 lat: event.latLng.lat(),
                 lng: event.latLng.lng(),
             });
+            setIsMarker(true);
         } catch (err: any) {
             weatherDispatch({
                 type: WeatherForecastActionType.ERROR,
@@ -50,17 +56,17 @@ const Map = () => {
     };
 
     return isLoaded ? (
-        <GoogleMap
-            onClick={setMarker}
-            mapContainerStyle={containerStyle}
-            center={position}
-            zoom={10}
-            options={{ streetViewControl: false }}>
-            <Marker position={position}></Marker>
-        </GoogleMap>
-    ) : (
-        <></>
-    );
+        <div id="map" className={styles.map}>
+            <GoogleMap
+                onClick={setMarker}
+                mapContainerStyle={containerStyle}
+                center={position}
+                zoom={10}
+                options={{ streetViewControl: false }}>
+                {isMarker && !error && <Marker position={position}></Marker>}
+            </GoogleMap>
+        </div>
+    ) : null;
 };
 
 export default Map;

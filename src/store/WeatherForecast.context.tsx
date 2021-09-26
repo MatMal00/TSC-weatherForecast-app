@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useReducer } from 'react';
 import { createContext } from 'react';
 import { getPosition } from '@utils/location';

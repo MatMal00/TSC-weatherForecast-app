@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { fetchWeather } from '@store/WeatherForecast.services';
 import { WeatherContext } from '@store/WeatherForecast.context';
 import { WeatherForecastActionType } from '@store/WeatherForecast.types';
+import arrowDown from '@img/chevronDown.svg';
 import styles from './Search.module.scss';
 
 const Search: React.FC = () => {
@@ -54,6 +55,10 @@ const Search: React.FC = () => {
                 />
                 <button type="submit">search</button>
             </form>
+            <a href="#map">Or, tap and select a location on the map</a>
+            <a className={styles.arrowDown} href="#map">
+                <img src={arrowDown} alt="arrow down" />
+            </a>
         </div>
     );
 };

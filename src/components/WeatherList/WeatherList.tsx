@@ -1,3 +1,4 @@
+import React from 'react';
 import { WeatherData } from '@store/WeatherForecast.types';
 import { days } from '@utils/constants';
 import WeatherItem from './subcomponents/WeatherItem';

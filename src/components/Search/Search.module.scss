@@ -1,8 +1,12 @@
 @import '@styles/variables';
 @import '@styles/responsive';
+@import '@styles/animations';
 
 .search {
+    position: relative;
     margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
 
     form {
         margin-top: 2rem;
@@ -44,7 +48,35 @@
 
         &:hover {
             background-color: $font-color;
+            font-size: $sizeXS;
             color: $black-color;
+        }
+    }
+
+    a {
+        padding: 5px 10px;
+        margin-top: 0.3rem;
+        align-self: flex-end;
+        font-size: $sizeExtraSmall;
+        font-family: $special-font;
+        color: $font-color;
+        text-decoration: none;
+
+        @include media-mobile {
+            font-size: $sizeXXS;
+        }
+    }
+
+    .arrowDown {
+        padding: 0 16px;
+        position: absolute;
+        left: 50%;
+        bottom: -28px;
+        transform: translateX(-50%);
+        animation: bounceArrowDown 2s ease-in infinite;
+
+        @include media-mobile {
+            bottom: -30px;
         }
     }
 }
