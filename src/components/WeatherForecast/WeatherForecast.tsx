@@ -1,9 +1,9 @@
 import React from 'react';
 import { ReactNode, useCallback, useContext, useEffect, useState } from 'react';
-import { WeatherData } from '@store/WeatherForecast.types';
-import { WeatherContext } from '@store/WeatherForecast.context';
-import { getDate } from '@utils/helpers';
-import WeatherList from '@components/WeatherList/WeatherList';
+import { WeatherData } from 'src/store/WeatherForecast.types';
+import { WeatherContext } from 'src/store/WeatherForecast.context';
+import { getDate } from 'src/utils/helpers';
+import WeatherList from 'src/components/WeatherList/WeatherList';
 import styles from './WeatherForecast.module.scss';
 
 const WeatherForecast: React.FC = () => {

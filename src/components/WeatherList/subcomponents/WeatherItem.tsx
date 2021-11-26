@@ -1,13 +1,13 @@
 import React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import { WeatherData } from '@store/WeatherForecast.types';
-import { getDate, getHour } from '@utils/helpers';
-import imgClear from '@img/clear.png';
-import imgClouds from '@img/clouds.png';
-import imgMist from '@img/mist.png';
-import imgRain from '@img/rain.png';
-import imgSnow from '@img/snow.png';
-import imgThunderstorm from '@img/thunderstorm.png';
+import { WeatherData } from 'src/store/WeatherForecast.types';
+import { getDate, getHour } from 'src/utils/helpers';
+import imgClear from 'src/img/clear.png';
+import imgClouds from 'src/img/clouds.png';
+import imgMist from 'src/img/mist.png';
+import imgRain from 'src/img/rain.png';
+import imgSnow from 'src/img/snow.png';
+import imgThunderstorm from 'src/img/thunderstorm.png';
 import styles from './WeatherItem.module.scss';
 
 interface WeatherItemProps {

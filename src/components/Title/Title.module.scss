@@ -1,11 +1,11 @@
-@import '@styles/variables';
-@import '@styles/responsive';
+@import 'src/styles/variables';
+@import 'src/styles/responsive';
 
 .title {
     margin-top: 2rem;
     position: relative;
     overflow-x: hidden;
-    height: 10rem; 
+    height: 10rem;
 
     @include media-mobile {
         margin-top: 4rem 0;

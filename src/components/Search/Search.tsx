@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { fetchWeather } from '@store/WeatherForecast.services';
-import { WeatherContext } from '@store/WeatherForecast.context';
-import { WeatherForecastActionType } from '@store/WeatherForecast.types';
-import arrowDown from '@img/chevronDown.svg';
+import { fetchWeather } from 'src/store/WeatherForecast.services';
+import { WeatherContext } from 'src/store/WeatherForecast.context';
+import { WeatherForecastActionType } from 'src/store/WeatherForecast.types';
+import arrowDown from 'src/img/chevronDown.svg';
 import styles from './Search.module.scss';
 
 const Search: React.FC = () => {

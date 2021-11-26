@@ -1,4 +1,4 @@
-import api from '@api';
+import api from 'src/api';
 import { ApiResponse } from './WeatherForecast.types';
 
 export const fetchWeather = async (city: string) => {

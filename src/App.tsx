@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { WeatherContext } from '@store/WeatherForecast.context';
-import Title from '@components/Title/Title';
-import Search from '@components/Search/Search';
-import WeatherForecast from '@components/WeatherForecast/WeatherForecast';
-import Loader from '@components/Loader/Loader';
-import Map from '@components/Map/Map';
+import { WeatherContext } from 'src/store/WeatherForecast.context';
+import Title from 'src/components/Title/Title';
+import Search from 'src/components/Search/Search';
+import WeatherForecast from 'src/components/WeatherForecast/WeatherForecast';
+import Loader from 'src/components/Loader/Loader';
+import Map from 'src/components/Map/Map';
 import styles from './App.module.scss';
 
 const Weathercast = () => {
@@ -14,7 +14,7 @@ const Weathercast = () => {
     return (
         <div className={styles.container}>
             <Title />
-            <div className={styles.center}>
+            <div className={styles.wrapper}>
                 {!loading && <Search />}
                 {weatherForecastList.length > 0 && !loading && !error && <WeatherForecast />}
                 {loading && <Loader />}

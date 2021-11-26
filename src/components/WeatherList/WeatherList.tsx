@@ -1,6 +1,6 @@
 import React from 'react';
-import { WeatherData } from '@store/WeatherForecast.types';
-import { days } from '@utils/constants';
+import { WeatherData } from 'src/store/WeatherForecast.types';
+import { days } from 'src/utils/constants';
 import WeatherItem from './subcomponents/WeatherItem';
 import styles from './WeatherList.module.scss';
 

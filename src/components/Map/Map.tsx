@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-import { WeatherContext } from '@store/WeatherForecast.context';
-import { WeatherForecastActionType } from '@store/WeatherForecast.types';
-import { fetchWeatherByUserLocation } from '@store/WeatherForecast.services';
+import { WeatherContext } from 'src/store/WeatherForecast.context';
+import { WeatherForecastActionType } from 'src/store/WeatherForecast.types';
+import { fetchWeatherByUserLocation } from 'src/store/WeatherForecast.services';
 import styles from './Map.module.scss';
 
 const containerStyle = {
@@ -32,6 +32,9 @@ const Map = () => {
     const setMarker = async (event: google.maps.MapMouseEvent) => {
         try {
             weatherDispatch({ type: WeatherForecastActionType.LOADING, payload: true });
+
+            if (!event?.latLng?.lat() || !event?.latLng?.lng())
+                throw new Error('Something went wrong');
 
             const data = await fetchWeatherByUserLocation(event.latLng.lat(), event.latLng.lng());
 

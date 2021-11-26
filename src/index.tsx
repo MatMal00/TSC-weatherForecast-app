@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Weatchercast from './App';
-import WeatcherForecastProvider from '@store/WeatherForecast.context';
+import WeatcherForecastProvider from 'src/store/WeatherForecast.context';
 import './index.scss';
 
 ReactDOM.render(

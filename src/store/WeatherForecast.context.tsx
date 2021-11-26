@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useReducer } from 'react';
 import { createContext } from 'react';
-import { getPosition } from '@utils/location';
+import { getPosition } from 'src/utils/location';
 import { fetchWeatherByUserLocation } from './WeatherForecast.services';
 import {
     ProviderValue,
